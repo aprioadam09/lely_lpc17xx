@@ -44,7 +44,9 @@ SupportedObjects=3
 3=0x1F80
 
 [ManufacturerObjects]
-SupportedObjects=0
+SupportedObjects=2
+1=0x2000
+2=0x2001
 
 [1000]
 ParameterName=Device type
@@ -105,3 +107,13 @@ ParameterName=NMT startup
 DataType=0x0007
 AccessType=rw
 ParameterValue=0x00000004
+
+[2000]
+ParameterName=Object with custom SDO download callback
+DataType=0x0007
+AccessType=rw
+
+[2001]
+ParameterName=Object with custom SDO upload callback
+DataType=0x0007
+AccessType=ro
