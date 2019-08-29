@@ -16,7 +16,7 @@ const struct co_sdev lpc17xx_sdev = {
 	.rate = 0,
 	.lss = 0,
 	.dummy = 0x000000fe,
-	.nobj = 5,
+	.nobj = 6,
 	.objs = (const struct co_sobj[]){{
 		.name = CO_SDEV_STRING("Device type"),
 		.idx = 0x1000,
@@ -48,6 +48,23 @@ const struct co_sdev lpc17xx_sdev = {
 			.def = { .u8 = CO_UNSIGNED8_MIN },
 			.val = { .u8 = CO_UNSIGNED8_MIN },
 			.access = CO_ACCESS_RO,
+			.pdo_mapping = 0,
+			.flags = 0
+		}}
+	}, {
+		.name = CO_SDEV_STRING("COB-ID time stamp object"),
+		.idx = 0x1012,
+		.code = CO_OBJECT_VAR,
+		.nsub = 1,
+		.subs = (const struct co_ssub[]){{
+			.name = CO_SDEV_STRING("COB-ID time stamp object"),
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED32,
+			.min = { .u32 = CO_UNSIGNED32_MIN },
+			.max = { .u32 = CO_UNSIGNED32_MAX },
+			.def = { .u32 = 0x80000100lu },
+			.val = { .u32 = 0x80000100lu },
+			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}

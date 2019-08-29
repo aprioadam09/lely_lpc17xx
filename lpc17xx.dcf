@@ -38,9 +38,10 @@ SupportedObjects=3
 3=0x1018
 
 [OptionalObjects]
-SupportedObjects=2
-1=0x1017
-2=0x1F80
+SupportedObjects=3
+1=0x1012
+2=0x1017
+3=0x1F80
 
 [ManufacturerObjects]
 SupportedObjects=0
@@ -54,6 +55,12 @@ AccessType=ro
 ParameterName=Error register
 DataType=0x0005
 AccessType=ro
+
+[1012]
+ParameterName=COB-ID time stamp object
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x80000100
 
 [1017]
 ParameterName=Producer heartbeat time
