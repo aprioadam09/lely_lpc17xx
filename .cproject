@@ -74,6 +74,8 @@
                                     <listOptionValue builtIn="false" value="LELY_NO_THREADS"/>
                                     									
                                     <listOptionValue builtIn="false" value="LELY_NO_CANFD"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LELY_NO_MALLOC"/>
                                     								
                                 </option>
                                 								
@@ -189,8 +191,6 @@
                                     									
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_OBJ_NAME"/>
                                     									
-                                    <listOptionValue builtIn="false" value="LELY_NO_CO_CSDO"/>
-                                    									
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_LSS"/>
                                     									
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_WTM"/>
@@ -206,6 +206,8 @@
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_NMT_BOOT"/>
                                     									
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_NMT_CFG"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LELY_NO_MALLOC"/>
                                     								
                                 </option>
                                 								
@@ -231,9 +233,29 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.1606384040.340028792" name="threads-win32.c" rcbsApplicability="disable" resourcePath="lely-core/lib/compat/threads-win32.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.630893286.2020252982">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.630893286.2020252982" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.630893286">
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1914436206" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.cross.exe.release.1606384040.2016758246" name="threads-pthread.c" rcbsApplicability="disable" resourcePath="lely-core/lib/compat/threads-pthread.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.630893286.1771258656">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.630893286.1771258656" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.630893286">
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.784996893" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
                     <sourceEntries>
                         						
-                        <entry excluding="lely-core/src/libc/threads-win32.c|lely-core/src/libc/threads-pthread.c|lely-core/src/tap|lely-core/src/io2|lely-core/src/io|lely-core/src/ev|lely-core/src/coapp|lely-core/test|lely-core/tools|lely-core/.clang-format.c|lely-core/.clang-format.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding="lely-core/lib/compat/threads-win32.c|lely-core/lib/compat/threads-pthread.c|lely-core/src/libc/threads-win32.c|lely-core/src/libc/threads-pthread.c|lely-core/src/tap|lely-core/src/io2|lely-core/src/io|lely-core/src/ev|lely-core/src/coapp|lely-core/test|lely-core/tools|lely-core/.clang-format.c|lely-core/.clang-format.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				
