@@ -200,6 +200,12 @@
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_GW"/>
                                     									
                                     <listOptionValue builtIn="false" value="LELY_NO_CO_GW_TXT"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LELY_NO_STDIO"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LELY_NO_CO_NMT_BOOT"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LELY_NO_CO_NMT_CFG"/>
                                     								
                                 </option>
                                 								
