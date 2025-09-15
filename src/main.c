@@ -36,7 +36,7 @@ int
 main(void)
 {
 	__librt_init();
-	__libnosys_init();
+	//__libnosys_init();
 
 	can_init(CAN_BITRATE);
 
@@ -101,7 +101,7 @@ main(void)
 
 	can_fini();
 
-	__libnosys_fini();
+	//__libnosys_fini();
 	__librt_fini();
 
 	return 0;
