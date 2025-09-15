@@ -1,2 +1,5 @@
 /Release/
 /.settings/
+/Debug/
+
+*.launch
