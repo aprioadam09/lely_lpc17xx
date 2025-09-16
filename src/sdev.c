@@ -258,7 +258,7 @@ const struct co_sdev lpc17xx_sdev = {
 		}, {
 			.subidx = 0x05, // Event Timer
 			.type = CO_DEFTYPE_UNSIGNED16,
-			.val = { .u16 = 100 }, // 100 ms
+			.val = { .u16 = 0 }, // 100 ms change to 0 for purely event-driven TPDO
 			.access = CO_ACCESS_RW
 		}, {
 			.subidx = 0x06, // SYNC start value
