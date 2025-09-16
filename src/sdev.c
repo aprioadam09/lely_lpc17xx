@@ -16,7 +16,7 @@ const struct co_sdev lpc17xx_sdev = {
 	.rate = 0,
 	.lss = 0,
 	.dummy = 0x000000fe,
-	.nobj = 8,
+	.nobj = 9,
 	.objs = (const struct co_sobj[]){{
 		.name = CO_SDEV_STRING("Device type"),
 		.idx = 0x1000,
@@ -79,8 +79,8 @@ const struct co_sdev lpc17xx_sdev = {
 			.type = CO_DEFTYPE_UNSIGNED16,
 			.min = { .u16 = CO_UNSIGNED16_MIN },
 			.max = { .u16 = CO_UNSIGNED16_MAX },
-			.def = { .u16 = 0x0032u },
-			.val = { .u16 = 0x0032u },
+			.def = { .u16 = 0x0000u },
+			.val = { .u16 = 0x0000u },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
@@ -194,6 +194,23 @@ const struct co_sdev lpc17xx_sdev = {
 			.def = { .u32 = CO_UNSIGNED32_MIN },
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RO,
+			.pdo_mapping = 0,
+			.flags = 0
+		}}
+	}, {
+		.name = CO_SDEV_STRING("LED Object with custom SDO upload callback"),
+		.idx = 0x2100,
+		.code = CO_OBJECT_VAR,
+		.nsub = 1,
+		.subs = (const struct co_ssub[]){{
+			.name = CO_SDEV_STRING("LED Object with custom SDO upload callback"),
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.min = { .u8 = 0 },
+			.max = { .u8 = 3 },
+			.def = { .u8 = 0 },
+			.val = { .u8 = 0 },
+			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
