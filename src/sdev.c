@@ -16,7 +16,7 @@ const struct co_sdev lpc17xx_sdev = {
 	.rate = 0,
 	.lss = 0,
 	.dummy = 0x000000fe,
-	.nobj = 9,
+	.nobj = 12,
 	.objs = (const struct co_sobj[]){{
 		.name = CO_SDEV_STRING("Device type"),
 		.idx = 0x1000,
@@ -213,6 +213,73 @@ const struct co_sdev lpc17xx_sdev = {
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
+		}}
+	}, {
+		.name = CO_SDEV_STRING("Button Object with custom SDO upload callback"),
+		.idx = 0x2110,
+		.code = CO_OBJECT_VAR,
+		.nsub = 1,
+		.subs = (const struct co_ssub[]){{
+			.name = CO_SDEV_STRING("Button Object with custom SDO upload callback"),
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.min = { .u8 = 0 },
+			.max = { .u8 = 1 },
+			.def = { .u8 = 0 },
+			.val = { .u8 = 0 },
+			.access = CO_ACCESS_RO,
+			.pdo_mapping = 1,
+			.flags = 0
+		}}
+	}, { // TPDO 1 Communication Parameter - Correct Syntax
+		.idx = 0x1800,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 6, // Kita definisikan sub-objek yang paling umum
+		.subs = (const struct co_ssub[]){{
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.val = { .u8 = 5 }, // Jumlah sub-objek yang aktif
+			.access = CO_ACCESS_RO
+		}, {
+			.subidx = 0x01, // COB-ID
+			.type = CO_DEFTYPE_UNSIGNED32,
+			.val = { .u32 = 0x00000180 | 2 }, // Default COB-ID = 0x180 + Node ID 2
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x02, // Transmission Type
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.val = { .u8 = 254 }, // 254 = event-driven (asynchronous)
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x03, // Inhibit Time
+			.type = CO_DEFTYPE_UNSIGNED16,
+			.val = { .u16 = 0 },
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x05, // Event Timer
+			.type = CO_DEFTYPE_UNSIGNED16,
+			.val = { .u16 = 100 }, // 100 ms
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x06, // SYNC start value
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.val = { .u8 = 0 },
+			.access = CO_ACCESS_RW
+		}}
+	}, { // TPDO 1 Mapping Parameter - Correct Syntax
+		.idx = 0x1A00,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 2,
+		.subs = (const struct co_ssub[]){{
+			.subidx = 0x00, // Number of mapped objects
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.val = { .u8 = 1 },
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x01, // 1st mapped object
+			.type = CO_DEFTYPE_UNSIGNED32,
+			.val = { .u32 = 0x21100008 }, // Map: Obj 0x2110, Sub 0, 8 bits
+			.access = CO_ACCESS_RW
 		}}
 	}}
 };
