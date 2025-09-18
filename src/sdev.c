@@ -16,7 +16,7 @@ const struct co_sdev lpc17xx_sdev = {
 	.rate = 0,
 	.lss = 0,
 	.dummy = 0x000000fe,
-	.nobj = 12,
+	.nobj = 14,
 	.objs = (const struct co_sobj[]){{
 		.name = CO_SDEV_STRING("Device type"),
 		.idx = 0x1000,
@@ -211,7 +211,7 @@ const struct co_sdev lpc17xx_sdev = {
 			.def = { .u8 = 0 },
 			.val = { .u8 = 0 },
 			.access = CO_ACCESS_RW,
-			.pdo_mapping = 0,
+			.pdo_mapping = 1,
 			.flags = 0
 		}}
 	}, {
@@ -279,6 +279,37 @@ const struct co_sdev lpc17xx_sdev = {
 			.subidx = 0x01, // 1st mapped object
 			.type = CO_DEFTYPE_UNSIGNED32,
 			.val = { .u32 = 0x21100008 }, // Map: Obj 0x2110, Sub 0, 8 bits
+			.access = CO_ACCESS_RW
+		}}
+	}, { // RPDO 1 Communication Parameter - Correct Syntax
+		.idx = 0x1400,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 2, // Kita hanya butuh sub-objek 1 (COB-ID) dan 2 (Trans. Type)
+		.subs = (const struct co_ssub[]){{
+			.subidx = 0x01, // COB-ID used by RPDO
+			.type = CO_DEFTYPE_UNSIGNED32,
+			.val = { .u32 = 0x00000200 | 2 }, // COB-ID = 0x200 + Node ID 2
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x02, // Transmission type
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.val = { .u8 = 255 }, // 255 = Asynchronous (event-driven)
+			.access = CO_ACCESS_RW
+		}}
+	}, { // RPDO 1 Mapping Parameter - Correct Syntax
+		.idx = 0x1600,
+		.code = CO_OBJECT_RECORD, // Seharusnya RECORD, bukan ARRAY untuk kemudahan
+		.nsub = 2,
+		.subs = (const struct co_ssub[]){{
+			.subidx = 0x00, // Number of mapped objects
+			.type = CO_DEFTYPE_UNSIGNED8,
+			.val = { .u8 = 1 },
+			.access = CO_ACCESS_RW
+		}, {
+			.subidx = 0x01, // 1st mapped object
+			.type = CO_DEFTYPE_UNSIGNED32,
+			// Map ke objek LED kita (0x2100), sub-indeks 0, 8 bit
+			.val = { .u32 = 0x21000008 },
 			.access = CO_ACCESS_RW
 		}}
 	}}

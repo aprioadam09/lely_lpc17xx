@@ -3,6 +3,7 @@
 #include <lely/co/nmt.h>
 #include <lely/co/sdev.h>
 #include <lely/co/sdo.h>
+#include <lely/co/rpdo.h>
 #include <lely/co/tpdo.h>
 #include <lely/co/time.h>
 
@@ -50,7 +51,7 @@ main(void)
 	Chip_GPIO_SetPinDIROutput(LPC_GPIO, 3, 26);
 
 	Chip_GPIO_SetPinState(LPC_GPIO, 3, 25, true); // true = HIGH = LED Mati
-	Chip_GPIO_SetPinState(LPC_GPIO, 3, 25, true);
+	Chip_GPIO_SetPinState(LPC_GPIO, 3, 26, true);
 	// ------------------------------------
 
 	// ---- Inisialisasi Hardware Tombol ----
@@ -76,6 +77,11 @@ main(void)
 	// Create the CANopen NMT service.
 	co_nmt_t *nmt = co_nmt_create(net, dev);
 	assert(nmt);
+
+	// Create and start the RPDO service to listen for LED commands
+	co_rpdo_t *rpdo1 = co_rpdo_create(net, dev, 1);
+	assert(rpdo1);
+	co_rpdo_start(rpdo1);
 
 	// Start the NMT service by resetting the node.
 	co_nmt_cs_ind(nmt, CO_NMT_CS_RESET_NODE);
@@ -139,6 +145,7 @@ main(void)
 		__WFI();
 	}
 
+	co_rpdo_destroy(rpdo1);
 	co_nmt_destroy(nmt);
 	co_dev_destroy(dev);
 	can_net_destroy(net);
