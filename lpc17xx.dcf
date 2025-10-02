@@ -30,6 +30,7 @@ Dummy0007=1
 
 [DeviceComissioning]
 NodeID=2
+Baudrate=125
 
 [MandatoryObjects]
 SupportedObjects=3
@@ -44,9 +45,11 @@ SupportedObjects=3
 3=0x1F80
 
 [ManufacturerObjects]
-SupportedObjects=2
+SupportedObjects=4
 1=0x2000
 2=0x2001
+3=0x2100
+4=0x2110
 
 [1000]
 ParameterName=Device type
@@ -117,6 +120,16 @@ AccessType=rw
 ParameterName=Object with custom SDO upload callback
 DataType=0x0007
 AccessType=ro
+
+[2100]
+ParameterName=LED Object with custom SDO callback
+DataType=0x0005
+AccessType=rw
+
+[2110]
+ParameterName=Button Object with custom PDO callback
+DataType=0x0005
+AccessType=rw
 
 [1800]
 ParameterName=TPDO 1 Communication Parameter
