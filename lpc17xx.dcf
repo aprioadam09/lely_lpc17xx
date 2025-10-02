@@ -117,3 +117,85 @@ AccessType=rw
 ParameterName=Object with custom SDO upload callback
 DataType=0x0007
 AccessType=ro
+
+[1800]
+ParameterName=TPDO 1 Communication Parameter
+ObjectType=0x09 
+
+[1800sub0]
+ParameterName=highest sub-index supported
+DataType=0x0005 
+AccessType=ro
+DefaultValue=5
+
+[1800sub1]
+ParameterName=COB-ID used by TPDO
+DataType=0x0007 
+AccessType=rw
+DefaultValue=0x182 
+
+[1800sub2]
+ParameterName=transmission type
+DataType=0x0005 
+AccessType=rw
+DefaultValue=254 
+
+[1800sub5]
+ParameterName=event timer
+DataType=0x0006 
+AccessType=rw
+DefaultValue=0 ; 0 = Mati, murni event-driven
+
+[1A00]
+ParameterName=TPDO 1 Mapping Parameter
+ObjectType=0x09 
+
+[1A00sub0]
+ParameterName=number of mapped objects
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[1A00sub1]
+ParameterName=1st mapped object
+DataType=0x0007 
+AccessType=rw
+DefaultValue=0x21100008 
+
+[1400]
+ParameterName=RPDO 1 Communication Parameter
+ObjectType=0x09 
+
+[1400sub0]
+ParameterName=highest sub-index supported
+DataType=0x0005 
+AccessType=ro
+DefaultValue=2
+
+[1400sub1]
+ParameterName=COB-ID used by RPDO
+DataType=0x0007 
+AccessType=rw
+DefaultValue=0x202 
+
+[1400sub2]
+ParameterName=transmission type
+DataType=0x0005 
+AccessType=rw
+DefaultValue=255 
+
+[1600]
+ParameterName=RPDO 1 Mapping Parameter
+ObjectType=0x09 
+
+[1600sub0]
+ParameterName=number of mapped objects
+DataType=0x0005 
+AccessType=rw
+DefaultValue=1
+
+[1600sub1]
+ParameterName=1st mapped object
+DataType=0x0007 
+AccessType=rw
+DefaultValue=0x21000008 
