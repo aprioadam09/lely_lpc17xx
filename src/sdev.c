@@ -13,304 +13,547 @@ const struct co_sdev lpc17xx_sdev = {
 	.order_code = NULL,
 	.baud = 0
 		| CO_BAUD_125,
-	.rate = 0,
+	.rate = 125,
 	.lss = 0,
 	.dummy = 0x000000fe,
 	.nobj = 14,
 	.objs = (const struct co_sobj[]){{
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("Device type"),
+#endif
 		.idx = 0x1000,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Device type"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("Error register"),
+#endif
 		.idx = 0x1001,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Error register"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u8 = CO_UNSIGNED8_MIN },
 			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u8 = CO_UNSIGNED8_MIN },
+#endif
 			.val = { .u8 = CO_UNSIGNED8_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("COB-ID time stamp object"),
+#endif
 		.idx = 0x1012,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("COB-ID time stamp object"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = 0x80000100lu },
+#endif
 			.val = { .u32 = 0x80000100lu },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("Producer heartbeat time"),
+#endif
 		.idx = 0x1017,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Producer heartbeat time"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED16,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u16 = CO_UNSIGNED16_MIN },
 			.max = { .u16 = CO_UNSIGNED16_MAX },
-			.def = { .u16 = 0x0000u },
-			.val = { .u16 = 0x0000u },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u16 = CO_UNSIGNED16_MIN },
+#endif
+			.val = { .u16 = CO_UNSIGNED16_MIN },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("Identity object"),
+#endif
 		.idx = 0x1018,
 		.code = CO_OBJECT_RECORD,
 		.nsub = 5,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Highest sub-index supported"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u8 = CO_UNSIGNED8_MIN },
 			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u8 = 0x04 },
+#endif
 			.val = { .u8 = 0x04 },
 			.access = CO_ACCESS_CONST,
 			.pdo_mapping = 0,
 			.flags = 0
 		}, {
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Vendor-ID"),
+#endif
 			.subidx = 0x01,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = 0x00000360lu },
+#endif
 			.val = { .u32 = 0x00000360lu },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}, {
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Product code"),
+#endif
 			.subidx = 0x02,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}, {
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Revision number"),
+#endif
 			.subidx = 0x03,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}, {
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Serial number"),
+#endif
 			.subidx = 0x04,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
+		.name = CO_SDEV_STRING("RPDO 1 Communication Parameter"),
+#endif
+		.idx = 0x1400,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 3,
+		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("highest sub-index supported"),
+#endif
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = 0x02 },
+#endif
+			.val = { .u8 = 0x02 },
+			.access = CO_ACCESS_RO,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("COB-ID used by RPDO"),
+#endif
+			.subidx = 0x01,
+			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u32 = CO_UNSIGNED32_MIN },
+			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u32 = 0x00000202lu },
+#endif
+			.val = { .u32 = 0x00000202lu },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("transmission type"),
+#endif
+			.subidx = 0x02,
+			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+			.val = { .u8 = CO_UNSIGNED8_MAX },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}}
+	}, {
+#if !LELY_NO_CO_OBJ_NAME
+		.name = CO_SDEV_STRING("RPDO 1 Mapping Parameter"),
+#endif
+		.idx = 0x1600,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 2,
+		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("number of mapped objects"),
+#endif
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = 0x01 },
+#endif
+			.val = { .u8 = 0x01 },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("1st mapped object"),
+#endif
+			.subidx = 0x01,
+			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u32 = CO_UNSIGNED32_MIN },
+			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u32 = 0x21000008lu },
+#endif
+			.val = { .u32 = 0x21000008lu },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}}
+	}, {
+#if !LELY_NO_CO_OBJ_NAME
+		.name = CO_SDEV_STRING("TPDO 1 Communication Parameter"),
+#endif
+		.idx = 0x1800,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 4,
+		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("highest sub-index supported"),
+#endif
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = 0x05 },
+#endif
+			.val = { .u8 = 0x05 },
+			.access = CO_ACCESS_RO,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("COB-ID used by TPDO"),
+#endif
+			.subidx = 0x01,
+			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u32 = CO_UNSIGNED32_MIN },
+			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u32 = 0x00000182lu },
+#endif
+			.val = { .u32 = 0x00000182lu },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("transmission type"),
+#endif
+			.subidx = 0x02,
+			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = 0xfe },
+#endif
+			.val = { .u8 = 0xfe },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("event timer"),
+#endif
+			.subidx = 0x05,
+			.type = CO_DEFTYPE_UNSIGNED16,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u16 = CO_UNSIGNED16_MIN },
+			.max = { .u16 = CO_UNSIGNED16_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u16 = CO_UNSIGNED16_MIN },
+#endif
+			.val = { .u16 = CO_UNSIGNED16_MIN },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}}
+	}, {
+#if !LELY_NO_CO_OBJ_NAME
+		.name = CO_SDEV_STRING("TPDO 1 Mapping Parameter"),
+#endif
+		.idx = 0x1a00,
+		.code = CO_OBJECT_RECORD,
+		.nsub = 2,
+		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("number of mapped objects"),
+#endif
+			.subidx = 0x00,
+			.type = CO_DEFTYPE_UNSIGNED8,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = 0x01 },
+#endif
+			.val = { .u8 = 0x01 },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}, {
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("1st mapped object"),
+#endif
+			.subidx = 0x01,
+			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u32 = CO_UNSIGNED32_MIN },
+			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u32 = 0x21100008lu },
+#endif
+			.val = { .u32 = 0x21100008lu },
+			.access = CO_ACCESS_RW,
+			.pdo_mapping = 0,
+			.flags = 0
+		}}
+	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("NMT startup"),
+#endif
 		.idx = 0x1f80,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("NMT startup"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = 0x00000004lu },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
+				| CO_OBJ_FLAGS_PARAMETER_VALUE
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("Object with custom SDO download callback"),
+#endif
 		.idx = 0x2000,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Object with custom SDO download callback"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
+#if !LELY_NO_CO_OBJ_NAME
 		.name = CO_SDEV_STRING("Object with custom SDO upload callback"),
+#endif
 		.idx = 0x2001,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
+#if !LELY_NO_CO_OBJ_NAME
 			.name = CO_SDEV_STRING("Object with custom SDO upload callback"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED32,
+#if !LELY_NO_CO_OBJ_LIMITS
 			.min = { .u32 = CO_UNSIGNED32_MIN },
 			.max = { .u32 = CO_UNSIGNED32_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
 			.def = { .u32 = CO_UNSIGNED32_MIN },
+#endif
 			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}, {
-		.name = CO_SDEV_STRING("LED Object with custom SDO upload callback"),
+#if !LELY_NO_CO_OBJ_NAME
+		.name = CO_SDEV_STRING("LED Object with custom PDO callback"),
+#endif
 		.idx = 0x2100,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
-			.name = CO_SDEV_STRING("LED Object with custom SDO upload callback"),
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("LED Object with custom PDO callback"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED8,
-			.min = { .u8 = 0 },
-			.max = { .u8 = 3 },
-			.def = { .u8 = 0 },
-			.val = { .u8 = 0 },
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = CO_UNSIGNED8_MIN },
+#endif
+			.val = { .u8 = CO_UNSIGNED8_MIN },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 1,
 			.flags = 0
 		}}
 	}, {
-		.name = CO_SDEV_STRING("Button Object with custom SDO upload callback"),
+#if !LELY_NO_CO_OBJ_NAME
+		.name = CO_SDEV_STRING("Button Object with custom PDO callback"),
+#endif
 		.idx = 0x2110,
 		.code = CO_OBJECT_VAR,
 		.nsub = 1,
 		.subs = (const struct co_ssub[]){{
-			.name = CO_SDEV_STRING("Button Object with custom SDO upload callback"),
+#if !LELY_NO_CO_OBJ_NAME
+			.name = CO_SDEV_STRING("Button Object with custom PDO callback"),
+#endif
 			.subidx = 0x00,
 			.type = CO_DEFTYPE_UNSIGNED8,
-			.min = { .u8 = 0 },
-			.max = { .u8 = 1 },
-			.def = { .u8 = 0 },
-			.val = { .u8 = 0 },
+#if !LELY_NO_CO_OBJ_LIMITS
+			.min = { .u8 = CO_UNSIGNED8_MIN },
+			.max = { .u8 = CO_UNSIGNED8_MAX },
+#endif
+#if !LELY_NO_CO_OBJ_DEFAULT
+			.def = { .u8 = CO_UNSIGNED8_MIN },
+#endif
+			.val = { .u8 = CO_UNSIGNED8_MIN },
 			.access = CO_ACCESS_RO,
 			.pdo_mapping = 1,
 			.flags = 0
-		}}
-	}, { // TPDO 1 Communication Parameter - Correct Syntax
-		.idx = 0x1800,
-		.code = CO_OBJECT_RECORD,
-		.nsub = 6, // Kita definisikan sub-objek yang paling umum
-		.subs = (const struct co_ssub[]){{
-			.subidx = 0x00,
-			.type = CO_DEFTYPE_UNSIGNED8,
-			.val = { .u8 = 5 }, // Jumlah sub-objek yang aktif
-			.access = CO_ACCESS_RO
-		}, {
-			.subidx = 0x01, // COB-ID
-			.type = CO_DEFTYPE_UNSIGNED32,
-			.val = { .u32 = 0x00000180 | 2 }, // Default COB-ID = 0x180 + Node ID 2
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x02, // Transmission Type
-			.type = CO_DEFTYPE_UNSIGNED8,
-			.val = { .u8 = 254 }, // 254 = event-driven (asynchronous)
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x03, // Inhibit Time
-			.type = CO_DEFTYPE_UNSIGNED16,
-			.val = { .u16 = 0 },
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x05, // Event Timer
-			.type = CO_DEFTYPE_UNSIGNED16,
-			.val = { .u16 = 0 }, // 100 ms change to 0 for purely event-driven TPDO
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x06, // SYNC start value
-			.type = CO_DEFTYPE_UNSIGNED8,
-			.val = { .u8 = 0 },
-			.access = CO_ACCESS_RW
-		}}
-	}, { // TPDO 1 Mapping Parameter - Correct Syntax
-		.idx = 0x1A00,
-		.code = CO_OBJECT_RECORD,
-		.nsub = 2,
-		.subs = (const struct co_ssub[]){{
-			.subidx = 0x00, // Number of mapped objects
-			.type = CO_DEFTYPE_UNSIGNED8,
-			.val = { .u8 = 1 },
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x01, // 1st mapped object
-			.type = CO_DEFTYPE_UNSIGNED32,
-			.val = { .u32 = 0x21100008 }, // Map: Obj 0x2110, Sub 0, 8 bits
-			.access = CO_ACCESS_RW
-		}}
-	}, { // RPDO 1 Communication Parameter - Correct Syntax
-		.idx = 0x1400,
-		.code = CO_OBJECT_RECORD,
-		.nsub = 2, // Kita hanya butuh sub-objek 1 (COB-ID) dan 2 (Trans. Type)
-		.subs = (const struct co_ssub[]){{
-			.subidx = 0x01, // COB-ID used by RPDO
-			.type = CO_DEFTYPE_UNSIGNED32,
-			.val = { .u32 = 0x00000200 | 2 }, // COB-ID = 0x200 + Node ID 2
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x02, // Transmission type
-			.type = CO_DEFTYPE_UNSIGNED8,
-			.val = { .u8 = 255 }, // 255 = Asynchronous (event-driven)
-			.access = CO_ACCESS_RW
-		}}
-	}, { // RPDO 1 Mapping Parameter - Correct Syntax
-		.idx = 0x1600,
-		.code = CO_OBJECT_RECORD, // Seharusnya RECORD, bukan ARRAY untuk kemudahan
-		.nsub = 2,
-		.subs = (const struct co_ssub[]){{
-			.subidx = 0x00, // Number of mapped objects
-			.type = CO_DEFTYPE_UNSIGNED8,
-			.val = { .u8 = 1 },
-			.access = CO_ACCESS_RW
-		}, {
-			.subidx = 0x01, // 1st mapped object
-			.type = CO_DEFTYPE_UNSIGNED32,
-			// Map ke objek LED kita (0x2100), sub-indeks 0, 8 bit
-			.val = { .u32 = 0x21000008 },
-			.access = CO_ACCESS_RW
 		}}
 	}}
 };

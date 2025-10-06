@@ -39,10 +39,14 @@ SupportedObjects=3
 3=0x1018
 
 [OptionalObjects]
-SupportedObjects=3
+SupportedObjects=7
 1=0x1012
 2=0x1017
 3=0x1F80
+4=0x1400
+5=0x1600
+6=0x1800
+7=0x1A00
 
 [ManufacturerObjects]
 SupportedObjects=4
@@ -71,7 +75,7 @@ DefaultValue=0x80000100
 ParameterName=Producer heartbeat time
 DataType=0x0006
 AccessType=rw
-DefaultValue=50
+DefaultValue=0
 
 [1018]
 SubNumber=5
@@ -122,18 +126,21 @@ DataType=0x0007
 AccessType=ro
 
 [2100]
-ParameterName=LED Object with custom SDO callback
+ParameterName=LED Object with custom PDO callback
 DataType=0x0005
 AccessType=rw
+PDOMapping=1
 
 [2110]
 ParameterName=Button Object with custom PDO callback
 DataType=0x0005
-AccessType=rw
+AccessType=ro
+PDOMapping=1
 
 [1800]
 ParameterName=TPDO 1 Communication Parameter
-ObjectType=0x09 
+ObjectType=0x09
+SubNumber=4 
 
 [1800sub0]
 ParameterName=highest sub-index supported
@@ -162,6 +169,7 @@ DefaultValue=0 ; 0 = Mati, murni event-driven
 [1A00]
 ParameterName=TPDO 1 Mapping Parameter
 ObjectType=0x09 
+SubNumber=2
 
 [1A00sub0]
 ParameterName=number of mapped objects
@@ -178,6 +186,7 @@ DefaultValue=0x21100008
 [1400]
 ParameterName=RPDO 1 Communication Parameter
 ObjectType=0x09 
+SubNumber=3
 
 [1400sub0]
 ParameterName=highest sub-index supported
@@ -199,7 +208,8 @@ DefaultValue=255
 
 [1600]
 ParameterName=RPDO 1 Mapping Parameter
-ObjectType=0x09 
+ObjectType=0x09
+SubNumber=2 
 
 [1600sub0]
 ParameterName=number of mapped objects
