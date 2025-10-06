@@ -141,12 +141,26 @@ main(void)
 		    if (current_button_state != last_button_state) {
 		        last_button_state = current_button_state;
 
+		        // --- BUKTI VISUAL 1: Tombol Terdeteksi ---
+				// Nyalakan LED Biru (pin 3.26) saat tombol ditekan (state = false)
+				// LED menyala saat pin LOW.
+				Chip_GPIO_SetPinState(LPC_GPIO, 3, 26, current_button_state);
+				// ------------------------------------------
+
 		        uint8_t od_value = current_button_state ? 0 : 1; // 0 = dilepas, 1 = ditekan
 
 		        co_sub_t *sub = co_dev_find_sub(dev, 0x2110, 0x00);
 		        if (sub) {
 		            co_sub_set_val_u8(sub, od_value);
 		            co_dev_tpdo_event(dev, 0x2110, 0x00);
+
+		            // --- BUKTI VISUAL 2: TPDO Dicoba Kirim ---
+					// Kedipkan LED Hijau (pin 3.25) untuk menandakan TPDO event dipanggil.
+					// Kita akan menyalakannya (LOW), delay, lalu mematikannya (HIGH).
+					Chip_GPIO_SetPinState(LPC_GPIO, 3, 25, false); // Nyalakan LED Hijau
+					simple_delay(200000); // Tahan sebentar
+					Chip_GPIO_SetPinState(LPC_GPIO, 3, 25, true);  // Matikan LED Hijau
+					// -----------------------------------------
 		        }
 		    }
 		}
