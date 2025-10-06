@@ -24,7 +24,7 @@ network.connect(bustype='socketcan', channel='can0')
 print("Mencari node...")
 try:
     # Penting: Pastikan file EDS-mu sudah lengkap dengan objek yang relevan
-    node = network.add_node(NODE_ID, 'lpc17xx.eds') 
+    node = network.add_node(NODE_ID, 'lpc17xx.dcf') 
     print(f"Slave dengan Node ID {NODE_ID} ditemukan.")
 except Exception as e:
     print(f"Error saat menambahkan node: {e}")
