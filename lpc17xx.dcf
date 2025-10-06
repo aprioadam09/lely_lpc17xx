@@ -181,7 +181,7 @@ DefaultValue=1
 ParameterName=1st mapped object
 DataType=0x0007 
 AccessType=rw
-DefaultValue=0x21100008 
+DefaultValue=0x00000000
 
 [1400]
 ParameterName=RPDO 1 Communication Parameter

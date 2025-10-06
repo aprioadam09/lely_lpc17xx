@@ -422,9 +422,9 @@ const struct co_sdev lpc17xx_sdev = {
 			.max = { .u32 = CO_UNSIGNED32_MAX },
 #endif
 #if !LELY_NO_CO_OBJ_DEFAULT
-			.def = { .u32 = 0x21100008lu },
+			.def = { .u32 = CO_UNSIGNED32_MIN },
 #endif
-			.val = { .u32 = 0x21100008lu },
+			.val = { .u32 = CO_UNSIGNED32_MIN },
 			.access = CO_ACCESS_RW,
 			.pdo_mapping = 0,
 			.flags = 0
