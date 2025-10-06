@@ -135,7 +135,7 @@ PDOMapping=1
 ParameterName=Button Object with custom PDO callback
 DataType=0x0005
 AccessType=ro
-PDOMapping=1
+PDOMapping=0
 
 [1800]
 ParameterName=TPDO 1 Communication Parameter

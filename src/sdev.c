@@ -552,7 +552,7 @@ const struct co_sdev lpc17xx_sdev = {
 #endif
 			.val = { .u8 = CO_UNSIGNED8_MIN },
 			.access = CO_ACCESS_RO,
-			.pdo_mapping = 1,
+			.pdo_mapping = 0,
 			.flags = 0
 		}}
 	}}
